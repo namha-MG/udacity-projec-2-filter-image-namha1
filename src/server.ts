@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import {Router, Request, Response } from 'requests';
+import {Router, Request, Response } from 'express';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
 (async () => {
@@ -43,7 +43,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     };
 
     res.status(200).sendFile( image, () => {
-      deleteLocalFiles(image_url);
+      deleteLocalFiles([image]);
     });
 
   });
